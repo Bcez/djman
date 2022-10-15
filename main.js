@@ -1,3 +1,15 @@
+
+leftWristX=0;
+leftWristY=0;
+rightWristX=0;
+rightWristY=0;
+scoreLeftWrist=0;
+song = "";
+
+function preload(){
+    song = loadSound("music.mp3");
+}
+
 function setup(){
     canvas = createCanvas(600, 500);
     canvas.center();
@@ -8,13 +20,7 @@ function setup(){
     poseNet.on('pose', gotPoses)
 }
 
-// Ml5/P5.js Stuff //
 
-leftWristX=0;
-leftWristY=0;
-rightWristX=0;
-rightWristY=0;
-scoreLeftWrist=0;
 function modelLoaded(){
     console.log('Posenet is loaded');
 }
@@ -33,21 +39,6 @@ function gotPoses(results){
         console.log("rightWristX = "+ rightWristX + " rightWristY = "+rightWristY);
     }
 }
-
-// Sound System //
-
-song = "";
-
-function preload(){
-    song = loadSound("music.mp3");
-}
-
-function play(){
-    song.play();
-    song.setVolume(1);
-    song.rate(1);
-}
-
 // Drawing System //
 
 function draw(){
@@ -64,6 +55,15 @@ function draw(){
         document.getElementById("volume").innerHTML = "Volume = " + volume;
         song.setVolume(volume);
 }
-
-
 }
+// Sound System //
+
+function play(){
+    song.play();
+    song.setVolume(1);
+    song.rate(1);
+}
+
+
+
+
